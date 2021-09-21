@@ -50,7 +50,7 @@ spec:
               key: gcp-sa
               name: profiles-profiles-config-h7dck95hm2
         image: gcr.io/kubeflow-images-public/profile-controller:vmaster-ga49f658f
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /metrics
@@ -88,7 +88,7 @@ spec:
               key: admin
               name: profiles-profiles-config-h7dck95hm2
         image: gcr.io/kubeflow-images-public/kfam:vmaster-g9f3bfd00
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /metrics

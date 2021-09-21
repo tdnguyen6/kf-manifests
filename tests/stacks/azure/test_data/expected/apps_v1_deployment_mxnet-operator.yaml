@@ -37,6 +37,6 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         image: kubeflow/mxnet-operator:v1.0.0-20200625
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: mxnet-operator
       serviceAccountName: mxnet-operator

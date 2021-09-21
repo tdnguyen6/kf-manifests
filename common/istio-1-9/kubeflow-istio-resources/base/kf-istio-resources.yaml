@@ -12,3 +12,18 @@ spec:
       protocol: HTTP
     hosts:
     - "*"
+  - port:
+      number: 22
+      name: ssh
+      protocol: TCP
+    hosts:
+    - "*"
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    hosts:
+    - "*"
+    tls:
+      mode: SIMPLE
+      credentialName: aio-tls
