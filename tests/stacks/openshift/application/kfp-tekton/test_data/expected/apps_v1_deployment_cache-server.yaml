@@ -63,7 +63,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         image: gcr.io/ml-pipeline/cache-server:1.0.4
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: server
         ports:
         - containerPort: 8443

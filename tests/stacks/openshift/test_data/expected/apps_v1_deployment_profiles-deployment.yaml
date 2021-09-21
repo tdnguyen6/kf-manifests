@@ -44,7 +44,7 @@ spec:
               key: gcp-sa
               name: profiles-profiles-config-4mgcmtgk6t
         image: quay.io/kubeflow/profile-controller:v1.1.0
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /metrics
@@ -82,7 +82,7 @@ spec:
               key: admin
               name: profiles-profiles-config-4mgcmtgk6t
         image: gcr.io/kubeflow-images-public/kfam:vmaster-g9f3bfd00
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /metrics
