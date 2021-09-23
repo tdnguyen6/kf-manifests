@@ -6,6 +6,7 @@ resources:
 - statefulset.yaml
 - envoy-filter.yaml
 - pvc.yaml
+- virtual-service.yml
 
 namespace: istio-system
 
@@ -43,6 +44,8 @@ configurations:
 
 images:
 - name: gcr.io/arrikto/kubeflow/oidc-authservice
-  newName: gcr.io/arrikto/kubeflow/oidc-authservice
-  newTag: fef11c3
+  # newName: gcr.io/arrikto/kubeflow/oidc-authservice
+  # newTag: fef11c3
+  newName: cr.t.tt/oidc-authservice
+  newTag: latest
 

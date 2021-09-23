@@ -15,10 +15,14 @@ spec:
       labels:
         app: authservice
     spec:
+      hostAliases:
+      - ip: "10.1.0.1"
+        hostnames:
+        - "k8s.tt"
       containers:
       - name: authservice
         image: gcr.io/arrikto/kubeflow/oidc-authservice:6ac9400
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: http-api
           containerPort: 8080
@@ -48,7 +52,7 @@ spec:
               claimName: authservice-pvc
         - name: ca-bundle
           secret:
-            secretName: aio-tls
+            secretName: tidu-root-ca
             items:
-            - key: tls.crt
-              path: aio-tls.crt
+            - key: ca.crt
+              path: ca.crt

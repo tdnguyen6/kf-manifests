@@ -2112,6 +2112,8 @@ spec:
           protocol: TCP
         - containerPort: 8443
           protocol: TCP
+        - containerPort: 2222
+          protocol: TCP
         - containerPort: 31400
           protocol: TCP
         - containerPort: 15443
@@ -2505,10 +2507,14 @@ spec:
     port: 443
     protocol: TCP
     targetPort: 8443
+  - name: ssh
+    port: 22
+    targetPort: 2222
   - name: tcp
     port: 31400
     protocol: TCP
     targetPort: 31400
+    protocol: TCP
   - name: tls
     port: 15443
     protocol: TCP
@@ -2517,6 +2523,7 @@ spec:
     app: istio-ingressgateway
     istio: ingressgateway
   type: LoadBalancer
+  loadBalancerIP: 10.1.0.1
 ---
 apiVersion: v1
 kind: Service

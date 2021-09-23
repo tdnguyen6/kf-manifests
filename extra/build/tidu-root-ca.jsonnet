@@ -1,11 +1,10 @@
 local k = import 'k8s-libsonnet/1.21/main.libsonnet';
 local sc = k.core.v1.secret;
 local data = {
-  'tls.crt': std.base64(importstr 'tls.crt'),
-  'tls.key': std.base64(importstr 'tls.key'),
+  'ca.crt': std.base64(importstr '/home/tidu/PKI/ca/ca.crt'),
 };
 
-sc.new('aio-tls', data, 'kubernetes.io/tls')
+sc.new('tidu-root-ca', data)
 +
 sc.metadata.withAnnotations(
   {

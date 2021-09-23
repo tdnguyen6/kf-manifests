@@ -6,3 +6,4 @@ resources:
 - minio-pvc.yaml
 - minio-service.yaml
 - mlpipeline-minio-artifact-secret.yaml
+- virtual-service.yaml

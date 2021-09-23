@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
-helmfile -f helm sync
+./scripts/build.py | kubectl apply -f -
 
-sjsonnet -J /home/tidu/repos/jsonnet-lib-gen/gen/github.com/jsonnet-libs resources/tls/aio-tls.jsonnet --yaml-out | kubectl apply -f -
+helmfile -f helm/helmfile.yml sync
 
+# ./scripts/nvidia-gpu.sh
+
+# kubectl apply -k extra/kustomize/out/
+
+# sleep 10
 
 while ! kustomize build tidu | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done

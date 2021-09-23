@@ -47,7 +47,7 @@ spawnerFormDefaults:
     options:
     - public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio-tidyverse:v1.4-rc.1
   # If true, hide registry and/or tag name in the image selection dropdown
-  hideRegistry: true
+  hideRegistry: false
   hideTag: false
   allowCustomImage: true
   # If true, users can input custom images
