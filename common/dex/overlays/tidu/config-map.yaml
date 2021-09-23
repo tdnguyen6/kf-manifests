@@ -5,7 +5,7 @@ metadata:
   name: dex
 data:
   config.yaml: |
-    issuer: https://a.io:2000/dex
+    issuer: https://k8s.tt/dex
     storage:
       type: kubernetes
       config:
@@ -17,7 +17,7 @@ data:
       format: text
     enablePasswordDB: true
     oauth2:
-      skipApprovalScreen: false
+      skipApprovalScreen: true
     alwaysShowLoginScreen: true
     connectors:
       - type: github
@@ -26,7 +26,7 @@ data:
         config:
           clientID: 24f5169896f551edc101
           clientSecret: f0559fee88d11a1be36217dd47cb88b1e74c35bc
-          redirectURI: https://a.io:2000/dex/callback
+          redirectURI: https://k8s.tt/dex/callback
           useLoginAsID: false
       - type: google
         id: google
@@ -34,7 +34,7 @@ data:
         config:
           clientID: 98134702542-k8n7mdo7fgdhfeeemp0nftj94qdjvlfq.apps.googleusercontent.com
           clientSecret: M3f02o0q9ERS64kQqzJw-mTZ
-          redirectURI: https://a.io:2000/dex/callback
+          redirectURI: https://k8s.tt/dex/callback
           useLoginAsID: false
     staticPasswords:
     - email: tidunguyen@aol.com
@@ -42,6 +42,7 @@ data:
       username: tidunguyen
     staticClients:
     - id: kubeflow-oidc-authservice
-      redirectURIs: ["/login/oidc"]
+      redirectURIs:
+      - '/authservice/oidc/callback'
       name: 'Dex Login Application'
       secret: pUBnBOY80SnXgjibTYM9ZWNzY2xreNGQok

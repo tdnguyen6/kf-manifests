@@ -1,0 +1,36 @@
+repositories:
+  - name: appscode
+    url: https://charts.appscode.com/stable/
+  - name: metallb
+    url: https://metallb.github.io/metallb
+  - name: nvdp
+    url: https://nvidia.github.io/k8s-device-plugin
+  - name: kubernetes-dashboard
+    url: https://kubernetes.github.io/dashboard/
+  # - name: prometheus-community
+  #   url: https://prometheus-community.github.io/helm-charts
+
+releases:
+  - name: metallb
+    namespace: metallb-system
+    chart: metallb/metallb
+    values:
+      - metallb.yml
+  - name: kubed
+    namespace: kube-system
+    version: 0.12.0
+    chart: appscode/kubed
+  - name: dashboard
+    namespace: kubernetes-dashboard
+    chart: kubernetes-dashboard/kubernetes-dashboard
+    values:
+      - dashboard.yml
+  - name: nvidia-device-plugin
+    chart: nvdp/nvidia-device-plugin
+  - name: local-path-storage
+    chart: ./charts/local-path-provisioner/
+    namespace: local-path-storage
+    values: 
+      - local-path.yml
+  # - name: kube-prometheus-stack
+  #   chart: prometheus-community/kube-prometheus-stack

@@ -3,6 +3,7 @@ kind: ClusterRbacConfig
 metadata:
   name: default
 spec:
-  mode: 'ON_WITH_INCLUSION'
-  inclusion:
-    services: ["ml-pipeline.kubeflow.svc.cluster.local"]
+  mode: OFF
+  # mode: 'ON_WITH_INCLUSION'
+  # inclusion:
+  #   services: ["ml-pipeline.kubeflow.svc.cluster.local", "ml-pipeline-ui.kubeflow.svc.cluster.local"]

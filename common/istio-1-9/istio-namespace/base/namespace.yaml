@@ -5,3 +5,4 @@ metadata:
   labels:
     istio-operator-managed: Reconcile
     istio-injection: disabled
+    host: k8s-tt
