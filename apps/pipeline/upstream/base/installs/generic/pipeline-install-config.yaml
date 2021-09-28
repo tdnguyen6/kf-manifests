@@ -45,7 +45,7 @@ data:
   ##
   ## V2 Compatible Mode Feature stage:
   ## [Beta](https://github.com/kubeflow/pipelines/blob/master/docs/release/feature-stages.md#beta)
-  defaultPipelineRoot: ""
+  defaultPipelineRoot: "minio://mlpipeline/v2/artifacts"
   ## autoUpdatePipelineDefaultVersion: States if the pipeline version
   ## should be updated by defult for a versioned pipeline or not when a new
   ## version is uploaded. This sets the deployment wide definition.

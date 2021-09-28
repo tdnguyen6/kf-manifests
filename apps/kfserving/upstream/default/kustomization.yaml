@@ -10,7 +10,7 @@ namespace: kfserving-system
 
 bases:
 - ../crd
-- ../configmap
+- ../tidu-configmap
 - ../rbac
 - ../manager
 - ../webhook
