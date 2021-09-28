@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    install.operator.istio.io/owning-resource: unknown
+    istio: inference-ingressgateway
+    app: istio-inference-ingressgateway
+    istio.io/rev: default
+    operator.istio.io/component: IngressGateways
+    release: istio
+  name: istio-inference-ingressgateway
+  namespace: istio-system
+spec:
+  ports:
+  - name: http2
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    istio: inference-ingressgateway
+    app: istio-inference-ingressgateway
+  type: LoadBalancer
+  loadBalancerIP: 10.1.0.3
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: istio-inference-ingressgateway
+spec:
+  # action: ALLOW
+  # selector:
+  #   matchLabels:
+  #     istio: inference-ingressgateway
+  #     app: istio-inference-ingressgateway
+  rules:
+  - {}

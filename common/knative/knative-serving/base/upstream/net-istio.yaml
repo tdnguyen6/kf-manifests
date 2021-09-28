@@ -14,6 +14,25 @@ rules:
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
+  name: knative-ingress-gateway
+  namespace: knative-serving
+  labels:
+    serving.knative.dev/release: "v0.22.1"
+    networking.knative.dev/ingress-provider: istio
+spec:
+  selector:
+    istio: inference-ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
   name: knative-local-gateway
   namespace: knative-serving
   labels:
@@ -21,7 +40,7 @@ metadata:
     networking.knative.dev/ingress-provider: istio
 spec:
   selector:
-    istio: ingressgateway
+    istio: inference-ingressgateway
   servers:
     - port:
         number: 8081
@@ -36,12 +55,13 @@ metadata:
   name: knative-local-gateway
   namespace: istio-system
   labels:
+    experimental.istio.io/disable-gateway-port-translation: "true"
     serving.knative.dev/release: "v0.22.1"
     networking.knative.dev/ingress-provider: istio
 spec:
   type: ClusterIP
   selector:
-    istio: ingressgateway
+    istio: inference-ingressgateway
   ports:
     - name: http2
       port: 80
